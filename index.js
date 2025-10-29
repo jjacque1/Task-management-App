@@ -1,4 +1,4 @@
-//Getting the html input values by id
+//Getting elements by id
 
 let categoryInput = document.getElementById("categoryInput");
 
@@ -12,6 +12,10 @@ let taskList = document.getElementById("taskList");
 
 let addTaskButton = document.getElementById("addTaskButton");
 
+//TASK ARRAY
+
+let tasks = [];
+
 //ADDING EVENT LISTENERS
 
 addTaskButton.addEventListener("click", function () {
@@ -19,6 +23,8 @@ addTaskButton.addEventListener("click", function () {
   let categoryText = categoryInput.value;
   let deadlineText = deadlineInput.value;
   let statusText = statusInput.value;
+
+  // VALIDATE INPUTS
 
   if (
     taskText === "" ||
@@ -30,15 +36,23 @@ addTaskButton.addEventListener("click", function () {
     return;
   }
 
-  // Create a single list item that includes all info
+  //CREATE A TASK OBJECT
+
+  let task = {
+    name: taskText,
+    category: categoryText,
+    deadline: deadlineText,
+    status: statusText,
+  };
+
+  //ADDING THE OBJECT TO THE ARRAY
+
+  tasks.push(task);
+
+  // Display task in list: Create a single list item that includes all info
 
   let listItem = document.createElement("li");
-  listItem.innerText = `
-
-    Category: ${categoryText} 
-    Task: ${taskText} 
-    Deadline: ${deadlineText} 
-    Status: ${statusText}`;
+  listItem.textContent = `${task.category}| ${task.name} |${task.deadline} |${task.status}`; 
 
   taskList.appendChild(listItem);
 
@@ -48,32 +62,6 @@ addTaskButton.addEventListener("click", function () {
   categoryInput.value = "";
   deadlineInput.value = "";
   statusInput.value = "";
+
+  console.log(tasks)
 });
-
-// addTaskButton.addEventListener("click", function () {
-
-//   if (categoryText === "") {
-//     alert("Please enter a category");
-//     return;
-//   }
-
-//   let listItem = document.createElement("li");
-//   listItem.innerText = categoryText;
-
-//   categoryList.appendChild(listItem);
-//   categoryInput.value = "";
-// });
-
-// addTaskButton.addEventListener("click", function () {
-
-//   if (deadlineinput === "") {
-//     alert("Please pick a deadline date");
-//     return;
-//   }
-
-//   let listItem = document.createElement("li");
-//   listItem.innerText = deadlineinput;
-
-//   deadlineList.appendChild(listItem);
-//   deadlineinput.value = "";
-// });
