@@ -5,17 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>App Management</title>
     <script defer src="index.js"></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <input id="categoryInput" type="text" placeholder="Category" />
-    <input id="taskInput" type="text" placeholder="Task name" />
-    <input id="deadlineInput" type="date" placeholder="Deadline" />
-    <input type="text" id="status" placeholder="status" />
-    <button id="addTaskButton">Add Task</button>
+    <div class="inputContainer">
+      <input id="categoryInput" type="text" placeholder="Category" />
+      <input id="taskInput" type="text" placeholder="Task name" />
+      <input id="deadlineInput" type="date" placeholder="Deadline" />
+      <input type="text" id="status" placeholder="status" />
+      <button id="addTaskButton">Add Task</button>
+    </div>
     <div class="display">
-      <ul id="taskList">test</ul>
-      <ul id="categoryList">test</ul>
-      <ul id="statusUpdate">test</ul>
+      <ul id="categoryList">
+        Category
+      </ul>
+      <ul id="taskList">
+        Task
+      </ul>
+      <ul id="dueDate">
+        Due Date
+      </ul>
+      <ul id="statusUpdate">
+        Status
+      </ul>
     </div>
   </body>
 </html>
