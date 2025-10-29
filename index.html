@@ -24,12 +24,19 @@
       </div>
       <div>
         <label for="status">Status</label>
-        <input type="text" id="status" placeholder="status" />
+        <!-- <input type="text" id="status" placeholder="status" /> -->
+        <select name="" id="status">
+            <option value=""></option>
+            <option value="In progress">In progress</option>
+            <option value="Completed">completed</option>
+            <option value="Overdue">Overdue</option>
+        </select>
       </div>
     </form>
-    <button id="addTask">
-        Add Task
-    </button>
-    <button id="reset">Reset</button>
+    <div>
+      <button id="addTask">Add Task</button>
+    </div>
+    <ul id="taskList"></ul>
+    <ul id=""></ul>
   </body>
 </html>
