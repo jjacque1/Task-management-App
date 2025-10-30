@@ -10,37 +10,35 @@
   <body>
     <form action="" id="taskForm">
       <div>
-        <label for="categoryName">Category</label>
-        <input id="categoryInput" type="text" placeholder="Category" />
+        <label for="categoryInput">Category:</label>
+        <input id="categoryInput" type="text" placeholder="Category" required/>
       </div>
 
       <div>
-        <label for="taskName">Task Name</label>
-        <input id="taskInput" type="text" placeholder="Task name" />
+        <label for="taskInput">Task Name:</label>
+        <input id="taskInput" type="text" placeholder="Task name" required/>
       </div>
 
       <div>
-        <label for="deadline">Deadline</label>
-        <input id="deadlineInput" type="date" placeholder="Deadline" />
+        <label for="deadlineInput">Deadline:</label>
+        <input id="deadlineInput" type="date" placeholder="Deadline" required/>
       </div>
 
       <div>
-        <label for="status">Status</label>
-        <select name="" id="statusInput">
-          <option value=""></option>
+        <label for="statusInput">Status:</label>
+        <select name="" id="statusInput" required>
+          <option value="" disabled selected hidden>Select status</option>
           <option value="In progress">In progress</option>
-          <option value="Completed">completed</option>
+          <option value="Completed">Completed</option>
           <option value="Overdue">Overdue</option>
         </select>
       </div>
+      <div>
+        <button id="addTaskButton" type="button">Add Task</button>
+      </div>
     </form>
-    <div>
-      <button id="addTaskButton">Add Task</button>
-    </div>
     <div class="display">
-      <ul id="taskList">
-
-      </ul>
+      <ul id="taskList"></ul>
     </div>
   </body>
 </html>

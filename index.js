@@ -36,7 +36,7 @@ addTaskButton.addEventListener("click", function () {
     return;
   }
 
-  //CREATE A TASK OBJECT
+  //CREATE A TASK OBJECT USING THE VARIBLES DECLEARED IN THE EVENTLISTENER FUNCTION
 
   let task = {
     name: taskText,
@@ -45,39 +45,80 @@ addTaskButton.addEventListener("click", function () {
     status: statusText,
   };
 
-  //ADDING THE OBJECT TO THE ARRAY
+  //ADDING THE OBJECT TO THE EMPTY ARRAY
 
   tasks.push(task);
 
-  // Display task in task object
-
-  let listItem = document.createElement("li");
-  listItem.innerText = `${task.category}| ${task.name} |${task.deadline} |${task.status}`;
-
-  taskList.appendChild(listItem);
-
-  //Clear inputs
+  //CLEAR INPUT FIELDS
 
   taskInput.value = "";
   categoryInput.value = "";
   deadlineInput.value = "";
   statusInput.value = "";
 
-//   console.log(tasks);
+  //   console.log(tasks); test to see if tasks are in the array
 
+  //Get today's date
 
-//Get today's date
+  const today = new Date();
 
-let today = new Date();
+  /*When we create a date in JavaScript, like this:
 
-//Change deadline text into a Date object
+ const today = new Date(); 
+ 
+ it includes both the date and the time down to milliseconds.
 
-// if (deadlineDate < today) {
+Example: 2025-10-29T20:45:12.456Z
 
-// }
+if you compare two dates directly — for example:   
 
+deadlineDate < today  
 
+that comparison includes the time of day too. So if your task’s deadline is today at 00:00 (midnight) and you check later in the day (like 8 p.m.), JavaScript thinks it’s already “past,” even though it’s still the same day.*/
+
+  //SET THE TIME TO MIDNIGHT
+
+  today.setHours(0, 0, 0, 0);
+
+  /*This method changes the time part of your date to: 00:00:00.000 
+So now today becomes just: 2025-10-29T00:00:00.000Z
+That means when we compare:
+
+deadlineDate < today
+
+we’re effectively comparing calendar dates only, not times.
+It’s a clean, reliable way to check whether a date is before, after, or equal to another date.
+*/
+
+  //CHANGE DEADLINE TEXT INTO A DATE OBJECT
+
+  /*Strings can’t be compared like real dates — so you convert it into a Date object:*/
+
+  let deadlineDate = new Date(deadlineText);
+
+  //SET DEADLINE DATE TO MIDNIGHT
+
+  deadlineDate.setHours(0, 0, 0, 0);
+
+  //SET DEFAULT STATUS TO THE USER'S SELECTION
+
+  let updatedStatusText = statusText;
+
+  //COMPARE DEADLINE DATE TO TODAY'S DATE
+
+  if (deadlineDate < today) {
+    if (statusText.toLowerCase() !== "completed") {
+      updatedStatusText = "Overdue";
+    } else {
+      updatedStatusText = "Completed";
+    }
+  } else {
+    updatedStatusText = statusText;
+  }
+  // DISPLAYING TASKS IN TASK OBJECT
+
+  let listItem = document.createElement("li");
+  listItem.innerText = `${task.category}| ${task.name} |${task.deadline} |${task.status}`;
+
+  taskList.appendChild(listItem);
 });
-
-
-
