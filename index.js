@@ -36,8 +36,6 @@ addTaskButton.addEventListener("click", function () {
     return;
   }
 
-  //   console.log(tasks); test to see if tasks are in the array
-
   //Get today's date
 
   const today = new Date();
@@ -108,6 +106,8 @@ It’s a clean, reliable way to check whether a date is before, after, or equal 
   //ADDING THE OBJECT TO THE EMPTY ARRAY
 
   tasks.push(task);
+
+  //   console.log(tasks); test to see if tasks are in the array
 
   // DISPLAYING TASKS IN TASK OBJECT
 
