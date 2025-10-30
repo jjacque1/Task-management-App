@@ -49,10 +49,10 @@ addTaskButton.addEventListener("click", function () {
 
   tasks.push(task);
 
-  // Display task in list: Create a single list item that includes all info
+  // Display task in task object
 
   let listItem = document.createElement("li");
-  listItem.textContent = `${task.category}| ${task.name} |${task.deadline} |${task.status}`; 
+  listItem.innerText = `${task.category}| ${task.name} |${task.deadline} |${task.status}`;
 
   taskList.appendChild(listItem);
 
@@ -63,5 +63,21 @@ addTaskButton.addEventListener("click", function () {
   deadlineInput.value = "";
   statusInput.value = "";
 
-  console.log(tasks)
+//   console.log(tasks);
+
+
+//Get today's date
+
+let today = new Date();
+
+//Change deadline text into a Date object
+
+// if (deadlineDate < today) {
+
+// }
+
+
 });
+
+
+
