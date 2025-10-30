@@ -36,26 +36,6 @@ addTaskButton.addEventListener("click", function () {
     return;
   }
 
-  //CREATE A TASK OBJECT USING THE VARIBLES DECLEARED IN THE EVENTLISTENER FUNCTION
-
-  let task = {
-    name: taskText,
-    category: categoryText,
-    deadline: deadlineText,
-    status: statusText,
-  };
-
-  //ADDING THE OBJECT TO THE EMPTY ARRAY
-
-  tasks.push(task);
-
-  //CLEAR INPUT FIELDS
-
-  taskInput.value = "";
-  categoryInput.value = "";
-  deadlineInput.value = "";
-  statusInput.value = "";
-
   //   console.log(tasks); test to see if tasks are in the array
 
   //Get today's date
@@ -115,10 +95,31 @@ It’s a clean, reliable way to check whether a date is before, after, or equal 
   } else {
     updatedStatusText = statusText;
   }
+
+  //CREATE A TASK OBJECT USING THE VARIBLES DECLEARED IN THE EVENTLISTENER FUNCTION
+
+  let task = {
+    name: taskText,
+    category: categoryText,
+    deadline: deadlineText,
+    status: updatedStatusText,
+  };
+
+  //ADDING THE OBJECT TO THE EMPTY ARRAY
+
+  tasks.push(task);
+
   // DISPLAYING TASKS IN TASK OBJECT
 
   let listItem = document.createElement("li");
   listItem.innerText = `${task.category}| ${task.name} |${task.deadline} |${task.status}`;
 
   taskList.appendChild(listItem);
+
+  //CLEAR INPUT FIELDS
+
+  taskInput.value = "";
+  categoryInput.value = "";
+  deadlineInput.value = "";
+  statusInput.value = "";
 });
