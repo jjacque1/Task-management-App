@@ -12,32 +12,37 @@ let taskList = document.getElementById("taskList");
 
 let addTaskButton = document.getElementById("addTaskButton");
 
-//TASK ARRAY
+//INITIALIZE AN EMPTY ARRAY TO HOLD TASK OBJECTS
 
 let tasks = [];
 
-//RENDER ONE TASK AS A TABLE ROW
+//DECLEAR A FUNCTION THAT WILL DISPLAY ONE TASK IN THE TABLE
 
 function renderTaskRow(task) {
+  //CRATE NEW TABLE ROW ELEMENT
   let tr = document.createElement("tr");
 
-let td1 = document.createElement("td");
-td1.textContent = task.category;
-tr.appendChild(td1);
+  //CREATES THE FIRST TABLE cell on the row
+  let td1 = document.createElement("td");
+  td1.textContent = task.category;
+  tr.appendChild(td1);
 
-let td2 = document.createElement("td");
-td2.textContent = task.name;
-tr.appendChild(td2);
+  //CREATES THE second TABLE cell on the row
+  let td2 = document.createElement("td");
+  td2.textContent = task.name;
+  tr.appendChild(td2);
 
-let td3 = document.createElement("td");
-td3.textContent = task.deadline;
-tr.appendChild(td3);
+  //CREATES THE third TABLE cell on the row
+  let td3 = document.createElement("td");
+  td3.textContent = task.deadline;
+  tr.appendChild(td3);
 
-let td4 = document.createElement("td");
-td4.textContent = task.status;
-tr.appendChild(td4);
+  //CREATES THE fourth TABLE cell on the row
+  let td4 = document.createElement("td");
+  td4.textContent = task.status;
+  tr.appendChild(td4);
 
-  //ADD THE ROW TO THE tbody with id="taskList"
+  //ADD THE ROW TO THE tbody with the id="taskList"
 
   taskList.appendChild(tr);
 }
