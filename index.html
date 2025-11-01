@@ -11,17 +11,17 @@
     <form action="" id="taskForm">
       <div>
         <label for="categoryInput">Category:</label>
-        <input id="categoryInput" type="text" placeholder="Category" required/>
+        <input id="categoryInput" type="text" placeholder="Category" required />
       </div>
 
       <div>
         <label for="taskInput">Task Name:</label>
-        <input id="taskInput" type="text" placeholder="Task name" required/>
+        <input id="taskInput" type="text" placeholder="Task name" required />
       </div>
 
       <div>
         <label for="deadlineInput">Deadline:</label>
-        <input id="deadlineInput" type="date" placeholder="Deadline" required/>
+        <input id="deadlineInput" type="date" placeholder="Deadline" required />
       </div>
 
       <div>
@@ -37,8 +37,18 @@
         <button id="addTaskButton" type="button">Add Task</button>
       </div>
     </form>
-    <div class="display">
-      <ul id="taskList"></ul>
-    </div>
+    <table id="taskTable">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Task</th>
+          <th>Deadline</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="taskList">
+        
+      </tbody>
+    </table>
   </body>
 </html>

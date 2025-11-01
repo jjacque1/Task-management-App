@@ -1,4 +1,4 @@
-//Getting elements by id
+// Getting elements by id
 
 let categoryInput = document.getElementById("categoryInput");
 
@@ -70,13 +70,14 @@ It’s a clean, reliable way to check whether a date is before, after, or equal 
 
   //CHANGE DEADLINE TEXT INTO A DATE OBJECT
 
-  /*Strings can’t be compared like real dates — so you convert it into a Date object:*/
+  //Strings can’t be compared like real dates — so you convert it into a Date object:
 
   let deadlineDate = new Date(deadlineText);
 
   //SET DEADLINE DATE TO MIDNIGHT
 
   deadlineDate.setHours(0, 0, 0, 0);
+
 
   //SET DEFAULT STATUS TO THE USER'S SELECTION
 
@@ -107,12 +108,12 @@ It’s a clean, reliable way to check whether a date is before, after, or equal 
 
   tasks.push(task);
 
-  //   console.log(tasks); test to see if tasks are in the array
+  console.log(tasks) //test to see tasks array in the console
 
   // DISPLAYING TASKS IN TASK OBJECT
 
-  let listItem = document.createElement("li");
-  listItem.innerText = `${task.category}| ${task.name} |${task.deadline} |${task.status}`;
+  let listItem = document.createElement("th");
+  listItem.innerText = `${task.category}|  ${task.name} |${task.deadline} |${task.status}`;
 
   taskList.appendChild(listItem);
 
@@ -123,3 +124,5 @@ It’s a clean, reliable way to check whether a date is before, after, or equal 
   deadlineInput.value = "";
   statusInput.value = "";
 });
+
+
