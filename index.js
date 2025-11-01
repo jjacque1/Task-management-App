@@ -12,6 +12,8 @@ let taskList = document.getElementById("taskList");
 
 let addTaskButton = document.getElementById("addTaskButton");
 
+let statusFilter = document.getElementById("statusFilter");
+
 //INITIALIZE AN EMPTY ARRAY TO HOLD TASK OBJECTS
 
 let tasks = [];
