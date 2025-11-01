@@ -16,9 +16,37 @@ let addTaskButton = document.getElementById("addTaskButton");
 
 let tasks = [];
 
+//RENDER ONE TASK AS A TABLE ROW
+
+function renderTaskRow(task) {
+  let tr = document.createElement("tr");
+
+let td1 = document.createElement("td");
+td1.textContent = task.category;
+tr.appendChild(td1);
+
+let td2 = document.createElement("td");
+td2.textContent = task.name;
+tr.appendChild(td2);
+
+let td3 = document.createElement("td");
+td3.textContent = task.deadline;
+tr.appendChild(td3);
+
+let td4 = document.createElement("td");
+td4.textContent = task.status;
+tr.appendChild(td4);
+
+  //ADD THE ROW TO THE tbody with id="taskList"
+
+  taskList.appendChild(tr);
+}
+
 //ADDING EVENT LISTENERS
 
-addTaskButton.addEventListener("click", function () {
+addTaskButton.addEventListener("click", function (event) {
+  event.preventDefault();
+
   let taskText = taskInput.value;
   let categoryText = categoryInput.value;
   let deadlineText = deadlineInput.value;
@@ -78,7 +106,6 @@ It’s a clean, reliable way to check whether a date is before, after, or equal 
 
   deadlineDate.setHours(0, 0, 0, 0);
 
-
   //SET DEFAULT STATUS TO THE USER'S SELECTION
 
   let updatedStatusText = statusText;
@@ -108,15 +135,9 @@ It’s a clean, reliable way to check whether a date is before, after, or equal 
 
   tasks.push(task);
 
-  console.log(tasks) //test to see tasks array in the console
+  // console.log(tasks) //test to see tasks array in the console
 
-  // DISPLAYING TASKS IN TASK OBJECT
-
-  let listItem = document.createElement("th");
-  listItem.innerText = `${task.category}|  ${task.name} |${task.deadline} |${task.status}`;
-
-  taskList.appendChild(listItem);
-
+  renderTaskRow(task);
   //CLEAR INPUT FIELDS
 
   taskInput.value = "";
@@ -124,5 +145,3 @@ It’s a clean, reliable way to check whether a date is before, after, or equal 
   deadlineInput.value = "";
   statusInput.value = "";
 });
-
-

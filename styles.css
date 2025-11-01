@@ -53,3 +53,8 @@ input, select {
   background: white;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+
+td {
+    text-align: center;
+    padding: 12px;
+}
